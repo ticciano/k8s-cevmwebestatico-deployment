@@ -5,6 +5,7 @@ metadata:
   name: cevmwebestatico-pvc
   namespace: default
 spec:
+  storageClassName: manual
   accessModes:
   - ReadWriteOnce
   resources:
