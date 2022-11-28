@@ -12,7 +12,7 @@ spec:
       storage: 30Gi
   volumeMode: Filesystem
   volumeName: pv01
-  ---
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -46,3 +46,4 @@ spec:
       - name: cevmwebestatico-volume
         persistentVolumeClaim:
           claimName: cevmwebestatico-pvc
+---
