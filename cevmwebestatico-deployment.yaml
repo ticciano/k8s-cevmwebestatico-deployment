@@ -48,3 +48,18 @@ spec:
         persistentVolumeClaim:
           claimName: cevmwebestatico-pvc
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-cevmwebestatico
+  namespace: default
+spec:
+  ports:
+  - nodePort: 30000
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: cevmwebestatico
+  type: NodePort
+---
