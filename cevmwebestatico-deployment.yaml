@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cevmwebestatico
+  name: cevmwebestatico-deployment
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cevmwebestatico
+  template:
+    metadata:
+      labels:
+        app: cevmwebestatico
+    spec:
+      containers:
+      - image: nginx:1.22
+        imagePullPolicy: Always
+        name: cevmwebestatico-container
+        ports:
+        - containerPort: 80
+          name: 80tcp
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: cevmwebestatico-volume
+      restartPolicy: Always
+      volumes:
+      - name: cevmwebestatico-volume
+        persistentVolumeClaim:
+          claimName: cevmwebestatico-pv-claim
