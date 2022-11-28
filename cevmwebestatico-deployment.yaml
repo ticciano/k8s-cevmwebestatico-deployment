@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cevmwebestatico-pv-claim
+  name: cevmwebestatico-pvc
   namespace: default
 spec:
   accessModes:
@@ -45,4 +45,4 @@ spec:
       volumes:
       - name: cevmwebestatico-volume
         persistentVolumeClaim:
-          claimName: cevmwebestatico-pv-claim
+          claimName: cevmwebestatico-pvc
