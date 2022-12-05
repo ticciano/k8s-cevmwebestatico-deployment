@@ -26,6 +26,7 @@ spec:
       app: cevmwebestatico
   template:
     metadata:
+      namespace: web
       labels:
         app: cevmwebestatico
     spec:
